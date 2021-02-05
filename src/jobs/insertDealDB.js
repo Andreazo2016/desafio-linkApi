@@ -3,7 +3,7 @@ import PipeDriveService from '../services/pipedriveService'
 
 export default async function insertDealDB() {
     try {
-        
+
         console.log('-------- Iniciando insercao de deals no BD ------------')
 
         const deals = await DealRepository.findAll()
@@ -15,12 +15,16 @@ export default async function insertDealDB() {
         if (data) {
             console.log('Inserindo.....')
             const dealList = data.map(({
+                id,
+                person_id,
                 title,
                 value,
                 currency,
                 won_time
             }) => ({
+                cod: id,
                 title,
+                owern_name: person_id.name,
                 value,
                 currency,
                 won_time

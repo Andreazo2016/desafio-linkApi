@@ -8,6 +8,13 @@ class DealRepository {
         const deals = await Deal.find({}).sort({ createdAt: -1 })
         return deals
     }
+    async findAllOrderNotBlingSent() {
+        const dealsNotSent = await Deal.find({ bling_send: false })
+        return dealsNotSent
+    }
+    async updateStatusBlingSend(id) {
+        await Deal.findByIdAndUpdate(id, { bling_send: true })
+    }
 }
 
 export default new DealRepository()

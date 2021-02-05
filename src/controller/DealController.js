@@ -1,4 +1,5 @@
 import DealRepository from '../repositories/DealRepository';
+import BlingService from '../services/blingService';
 
 class DealController {
     async index(req, res) {

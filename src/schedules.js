@@ -1,5 +1,6 @@
 import cron from 'node-cron'
 import InsertDealDB from './jobs/insertDealDB';
+import SendOrder from './jobs/sendOrder';
 
 
 const insertDealPipeDriveDB = cron.schedule(
@@ -13,5 +14,16 @@ const insertDealPipeDriveDB = cron.schedule(
     }
 );
 
+const sendOrderToBling = cron.schedule(
+    "* * * * *",
+    () => {
+        SendOrder();
+    },
+    {
+        scheduled: true,
+        timezone: "America/Sao_Paulo"
+    }
+);
 
-export { insertDealPipeDriveDB }
+
+export { insertDealPipeDriveDB, sendOrderToBling }
