@@ -4,6 +4,7 @@ import DealController from './controller/DealController';
 
 const Routers = Router()
 
-Routers.get('/deals', DealController.index)
+Routers.get('/reports', DealController.reports)
+Routers.get('/deals', DealController.all)
 
 export { Routers }

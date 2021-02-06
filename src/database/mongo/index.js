@@ -12,13 +12,14 @@ class Database {
       {
         useNewUrlParser: true,
         useFindAndModify: true,
-        useUnifiedTopology:true
+        useUnifiedTopology: true,
+        useFindAndModify: true
       },
       err => {
         if (!err) {
-          console.log("MongoDB Connection Succeeded.");
+          console.log("Mongo conectado com sucesso.");
         } else {
-          console.log(`Error in DB connection:${err}`);
+          console.log(`Erro ao conectar no MongoDB`);
         }
       }
     );

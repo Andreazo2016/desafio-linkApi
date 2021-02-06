@@ -1,6 +1,6 @@
 import cron from 'node-cron'
-import InsertDealDB from './jobs/insertDealDB';
-import SendOrder from './jobs/sendOrder';
+import InsertDealDB from './jobs/insertDealFromPipeDriveInDB';
+import SendOrder from './jobs/sendDealToBling';
 
 
 const insertDealPipeDriveDB = cron.schedule(

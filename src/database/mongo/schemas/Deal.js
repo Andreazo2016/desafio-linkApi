@@ -9,6 +9,7 @@ const DealSchema = mongoose.Schema(
         currency: String,
         won_time: String,
         status: String,
+        date: String,
         bling_send: {
             type: Boolean,
             default: false

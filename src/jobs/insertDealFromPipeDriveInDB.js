@@ -1,18 +1,18 @@
-import DealRepository from '../repositories/DealRepository';
+import DealService from '../services/DealService'
 import PipeDriveService from '../services/pipedriveService'
+import moment from 'moment-timezone'
 
 export default async function insertDealDB() {
     try {
 
-        console.log('-------- Iniciando insercao de deals no BD ------------')
-
-        const deals = await DealRepository.findAll()
+        const deals = await DealService.findAll()
 
         const dealsLength = deals.length
 
         const data = await PipeDriveService.findAllDealWithStatusWon(dealsLength)
 
         if (data) {
+            console.log('-------- Iniciando insercao de deal no BD ------------')
             console.log('Inserindo.....')
             const dealList = data.map(({
                 id,
@@ -27,13 +27,14 @@ export default async function insertDealDB() {
                 owern_name: person_id.name,
                 value,
                 currency,
-                won_time
+                won_time,
+                date: moment(new Date()).tz('America/Sao_Paulo').format('DD/MM/YYYY')
             }))
 
-            await DealRepository.saveMany(dealList)
+            await DealService.saveMany(dealList)
+            console.log('-------- Finalizado insercao de deal no BD ------------')
         }
 
-        console.log('-------- Finalizado insercao de deals no BD ------------')
 
     } catch (error) {
         console.log(error);

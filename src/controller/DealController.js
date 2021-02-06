@@ -1,14 +1,20 @@
-import DealRepository from '../repositories/DealRepository';
-import BlingService from '../services/blingService';
+import DealService from '../services/DealService';
 
 class DealController {
-    async index(req, res) {
+    async reports(req, res) {
         try {
-            const deals = await DealRepository.findAll()
+            const deals = await DealService.findAllAggregateByDate()
             return res.status(200).json(deals)
         } catch (error) {
-            console.log(error)
-            return res.status(500).json(error)
+            return res.status(500).json({ message: "Internal Server Error" })
+        }
+    }
+    async all(req, res) {
+        try {
+            const deals = await DealService.findAll()
+            return res.status(200).json(deals)
+        } catch (error) {
+            return res.status(500).json({ message: "Internal Server Error" })
         }
     }
 }
