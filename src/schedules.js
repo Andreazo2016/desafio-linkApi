@@ -3,7 +3,7 @@ import InsertDealDB from './jobs/insertDealFromPipeDriveInDB';
 import SendOrder from './jobs/sendDealToBling';
 
 
-const insertDealPipeDriveDB = cron.schedule(
+const insertDealsPipeDriveDB = cron.schedule(
     "* * * * *",
     () => {
         InsertDealDB();
@@ -14,7 +14,7 @@ const insertDealPipeDriveDB = cron.schedule(
     }
 );
 
-const sendOrderToBling = cron.schedule(
+const sendDealsToBling = cron.schedule(
     "* * * * *",
     () => {
         SendOrder();
@@ -26,4 +26,4 @@ const sendOrderToBling = cron.schedule(
 );
 
 
-export { insertDealPipeDriveDB, sendOrderToBling }
+export { insertDealsPipeDriveDB, sendDealsToBling }

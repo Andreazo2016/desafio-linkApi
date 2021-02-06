@@ -1,13 +1,13 @@
 import express from 'express'
 import { Routers } from '../routes'
 import '../database/mongo/index'
-import { insertDealPipeDriveDB, sendOrderToBling } from '../schedules'
+import { insertDealsPipeDriveDB, sendDealsToBling } from '../schedules'
 
 const app = express()
 
 app.use(Routers)
 
-insertDealPipeDriveDB.start();
-sendOrderToBling.start();
+insertDealsPipeDriveDB.start();
+sendDealsToBling.start();
 
 export { app }
