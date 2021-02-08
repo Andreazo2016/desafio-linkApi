@@ -1,7 +1,7 @@
 # Desafio técnico LinkApi - Backend Nodejs
 
 ## ***Descrição do desafio implementado***.
-### O presente desafio foi implementado da seguinte maneira: Foi criado dois Jobs que a cada determinado intervalo de tempo (atualmente está definido o intervalo de 1 min para questões de testes) irão consultar e enviar os dados dos negócios. O primeiro job criado foi o **insertDealFromPipeDriveInDB**, o mesmo consulta o serviço da PipeDrive e retorna os novos negocios que foram criado e que estão com status "ganho". Depois de retornado essas informações, o job salva-as no banco de dados (MongoDB) com os seguintes campos:
+ O presente desafio foi implementado da seguinte maneira: Foi criado dois Jobs que a cada determinado intervalo de tempo (atualmente está definido o intervalo de 1 min para questões de testes) irão consultar e enviar os dados dos negócios. O primeiro job criado foi o **insertDealFromPipeDriveInDB**, o mesmo consulta o serviço da PipeDrive e retorna os novos negocios que foram criado e que estão com status "ganho". Depois de retornado essas informações, o job salva-as no banco de dados (MongoDB) com os seguintes campos:
 
 ```json
 {
@@ -16,7 +16,7 @@
 }
 ```
 
-### Depois de salva essas informações no Banco de Dados, outro job **sendDealToBling** busca na base de dados os negócios que ainda não foram enviado para o serviço da Bling e os envia. Depois de enviado, o job muda o status do campo (bling_send) para true na base,(o padrão é false, e indica que ainda não foi enviado) informando que ela já foi enviada. Por final foi criado dois endpoints para consultar as informações salvas na base de dados.
+ Depois de salva essas informações no Banco de Dados, outro job **sendDealToBling** busca na base de dados os negócios que ainda não foram enviado para o serviço da Bling e os envia. Depois de enviado, o job muda o status do campo (bling_send) para true na base,(o padrão é false, e indica que ainda não foi enviado) informando que ela já foi enviada. Por final foi criado dois endpoints para consultar as informações salvas na base de dados.
 
 ## Estrutura de pasta do projeto
 ![estrutura pasta do projeto](estrututra_pasta_desafio_linkApi.png)
