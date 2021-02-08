@@ -1,6 +1,7 @@
-import axios from 'axios';
+import 'dotenv/config'
+import axios from 'axios'
 
-const BASE_URL_BLING = `https://bling.com.br/Api/v2/pedido/json/`;
+const BASE_URL_BLING = process.env.BLING_URL
 const blingApi = axios.create({
     baseURL: BASE_URL_BLING
 })
